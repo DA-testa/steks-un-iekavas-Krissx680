@@ -18,7 +18,10 @@ def find_mismatch(text):
       if not opening_brackets_stack or not are_matching(
           opening_brackets_stack[-1].char, next):
         return i + 1
-      opening_brackets_stack.pop()
+
+      opening_bracket = opening_brackets_stack.pop()
+      if not are_matching(opening_bracket.char, next):
+        return opening_bracket.position
 
   if opening_brackets_stack:
     return opening_brackets_stack[0].position
@@ -30,7 +33,6 @@ def main():
   text = input()
   mismatch = find_mismatch(text)
   print(mismatch)
- 
 
 
 if __name__ == "__main__":
