@@ -19,10 +19,10 @@ def find_mismatch(text):
                 return i+1
             opening_brackets_stack.pop()
 
-    if not opening_brackets_stack:
+    if opening_brackets_stack:
         return "Success"
 
-    return opening_brackets_stack[0].position
+    return opening_brackets_stack[-1].position
 
 
 def main():
@@ -33,3 +33,4 @@ def main():
 
 if __name__ == "__main__":
   main()
+
