@@ -29,11 +29,13 @@ def find_mismatch(text):
 def main():
   text = input()
   mismatch = find_mismatch(text)
-  print(mismatch)
- 
+  if mismatch == "Success":
+    print(mismatch)
+  elif text[mismatch - 1] in "([{":
+    print(opening_brackets_stack[0].position)
+  else:
+    print(mismatch)
 
 
 if __name__ == "__main__":
   main()
-
-
